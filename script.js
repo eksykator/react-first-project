@@ -6,7 +6,17 @@ var MovieTitle = React.createClass({
     render: function() {
         return (React.createElement('h2', {}, this.props.title))
     }
-})
+});
+
+var MovieDesc = React.createClass({
+    propTypes: {
+        desc: React.PropTypes.string.isRequired,
+    },
+    
+    render: function() {
+        return (React.createElement('p', {}, this.props.desc))
+    }
+});
 
 var Movie = React.createClass({
     propTypes: {
@@ -16,7 +26,7 @@ var Movie = React.createClass({
     render: function() {
         return (React.createElement('li', {},
             React.createElement(MovieTitle, {title: this.props.movie.title}),
-            React.createElement('p', {}, this.props.movie.desc),
+            React.createElement(MovieDesc, {desc: this.props.movie.desc}),
             React.createElement('img', {src: this.props.movie.img})
             )
         )
